@@ -1,0 +1,35 @@
+.container{
+    width: 100%;
+}
+
+.wrapper{
+    width: 100%;
+    max-width: 608px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttonDelete{
+    width: 124px;
+    height: 40px;   
+    background: #EB5757;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: ease 100ms;
+}
+
+.buttonDelete:active{
+    transform: scale(0.98);
+    transition: ease 200ms;
+}

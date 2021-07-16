@@ -1,0 +1,49 @@
+.container{
+    width: 100%;
+}
+
+.wrapper{
+    width: 100%;
+    max-width: 608px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tabs {
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom: 1px solid #BDBDBD;   
+}
+
+.tab {
+    width: 89px;
+    margin: 0 auto;
+    height: 55px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+    position: relative;
+    cursor: pointer;
+}
+
+
+.activeTab:before {
+    background-color: #2F80ED;
+}
+
+.activeTab::before{
+    content: '';
+    width: 100%;
+    display:block;
+    position: absolute;
+    height: 4px;
+    bottom:0;
+    left:0;
+    right: 0;
+    
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}

@@ -8,7 +8,7 @@ import DeleteButton from './Components/DeleteButton/DeleteButton'
 
 function App() {
   const [activeTab, setActiveTab] = useState("All")
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []))
+  const [todos, setTodos] = useState([...JSON.parse(localStorage.getItem("todos"))])
 
   const handleClick = (name) => {
     setActiveTab(name)

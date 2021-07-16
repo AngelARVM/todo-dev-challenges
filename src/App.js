@@ -8,14 +8,16 @@ import DeleteButton from './Components/DeleteButton/DeleteButton'
 
 function App() {
   const [activeTab, setActiveTab] = useState("All")
-  const [todos, setTodos] = useState([...JSON.parse(localStorage.getItem("todos"))])
+  const [todos, setTodos] = useState([])
 
   const handleClick = (name) => {
     setActiveTab(name)
   }
 
   const addTodo = (todo) => {
-    setTodos([...todos, todo])
+    const newTodos = [...todos, todo]
+    setTodos(newTodos)
+    localStorage.setItem("todos", JSON.stringify(newTodos))
   }
 
   const completeTodo = (id) => {
@@ -28,23 +30,27 @@ function App() {
     })
 
     setTodos(newTodos)
+    localStorage.setItem("todos", JSON.stringify(newTodos))
   }
 
   const deleteTodo = (id) => {
     const newTodos = todos?.filter(todo => todo.id !== id)
 
-
     setTodos(newTodos)
+    localStorage.setItem("todos", JSON.stringify(newTodos))
   }
 
   const deleteAllTodos = () => {
     const newTodos = todos.filter(todo => todo.completed === false)
     setTodos(newTodos)
+    localStorage.setItem("todos", JSON.stringify(newTodos))
   }
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos))
-  }, [todos]) 
+    const newTodos = JSON.parse(localStorage.getItem("todos"))
+    
+    setTodos(!!newTodos ? newTodos : [])
+  }, [])
 
 
   return (

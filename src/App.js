@@ -8,7 +8,7 @@ import DeleteButton from './Components/DeleteButton/DeleteButton'
 
 function App() {
   const [activeTab, setActiveTab] = useState("All")
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")))
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []))
 
   const handleClick = (name) => {
     setActiveTab(name)
@@ -31,7 +31,8 @@ function App() {
   }
 
   const deleteTodo = (id) => {
-    const newTodos = todos.filter(todo => todo.id !== id)
+    const newTodos = todos?.filter(todo => todo.id !== id)
+
 
     setTodos(newTodos)
   }
@@ -45,7 +46,7 @@ function App() {
     localStorage.setItem("todos", JSON.stringify(todos))
   }, [todos]) 
 
-  
+
   return (
     <div className="App">
       <Header />
